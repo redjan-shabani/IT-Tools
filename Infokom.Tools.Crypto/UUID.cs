@@ -4,6 +4,7 @@ using System.Text;
 namespace Infokom.Tools.Crypto
 {
 
+
 	public static class UUID
 	{
 		public enum Version : byte

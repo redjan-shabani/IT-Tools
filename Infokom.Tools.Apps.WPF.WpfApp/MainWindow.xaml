@@ -104,6 +104,30 @@
 					<local:ULIDGenerator VerticalAlignment="Top" Margin="5" Background="LightGray"></local:ULIDGenerator>
 				</StackPanel>
 			</TabItem>
+
+
+			<!-- Cipher -->
+			<TabItem >
+				<TabItem.Header>
+					<StackPanel Orientation="Horizontal" Width="240" HorizontalAlignment="Left">
+						<md:PackIcon VerticalAlignment="Center" Width="24" Height="24" Kind="Encryption" />
+						<TextBlock VerticalAlignment="Center" Text="Text cipher" />
+					</StackPanel>
+				</TabItem.Header>
+				<StackPanel Orientation="Vertical" Margin="5">
+					<StackPanel Width="640" Margin="5">
+						<TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}">Text Cipher</TextBlock>
+						<TextBlock TextWrapping="Wrap">Encrypt clear text and decrypt ciphertext using crypto algorithms like AES, TripleDES, Rabbit or RC4.</TextBlock>
+						<Separator BorderBrush="Gray" BorderThickness="1"></Separator>
+					</StackPanel>
+
+					<StackPanel Orientation="Horizontal">
+						<local:Encryptor Margin="5"></local:Encryptor>
+						<local:Decryptor Margin="5"></local:Decryptor>
+					
+					</StackPanel>
+				</StackPanel>
+			</TabItem>
 		</TabControl>
 
 	</DockPanel>
