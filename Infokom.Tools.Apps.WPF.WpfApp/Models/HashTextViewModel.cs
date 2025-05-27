@@ -1,10 +1,10 @@
 ﻿using Infokom.Tools.Crypto;
-using System.Text;
 using System.Windows;
 using System.Windows.Input;
 
 namespace Infokom.Tools.Apps.WPF.WpfApp
 {
+
 	public class HashTextViewModel : DependencyObject
 	{
 		private static void PropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)

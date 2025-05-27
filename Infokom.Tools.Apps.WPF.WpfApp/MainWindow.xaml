@@ -66,6 +66,25 @@
 					<local:HashText VerticalAlignment="Top" Margin="5" Background="LightGray"></local:HashText>
 				</StackPanel>
 			</TabItem>
+
+			<!-- UUID Geberator -->
+			<TabItem >
+				<TabItem.Header>
+					<StackPanel Orientation="Horizontal" Width="240" HorizontalAlignment="Left">
+						<md:PackIcon VerticalAlignment="Center" Width="24" Height="24" Kind="EyeOff" />
+						<TextBlock VerticalAlignment="Center" Text="UUIDs generator" />
+					</StackPanel>
+				</TabItem.Header>
+				<StackPanel Orientation="Vertical" Margin="5">
+					<StackPanel Width="640" Margin="5">
+						<TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}">UUIDs generator</TextBlock>
+						<TextBlock TextWrapping="Wrap">A Universally Unique Identifier (UUID) is a 128-bit number used to identify information in computer systems. The number of possible UUIDs is 16^32, which is 2^128 or about 3.4x10^38 (which is a lot!).</TextBlock>
+						<Separator BorderBrush="Gray" BorderThickness="1"></Separator>
+					</StackPanel>
+
+					<local:UUIDGenerator VerticalAlignment="Top" Margin="5" Background="LightGray"></local:UUIDGenerator>
+				</StackPanel>
+			</TabItem>
 		</TabControl>
 
 

@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="Infokom.Tools.Apps.WPF.WpfApp.UUIDGenerator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+               xmlns:local="clr-namespace:Infokom.Tools.Apps.WPF.WpfApp"
+               Width="640" MinWidth="640" MaxWidth="640"
+               Background="LightGray">
+
+	<UserControl.DataContext>
+		<local:UUIDGeneratorViewModel></local:UUIDGeneratorViewModel>
+	</UserControl.DataContext>
+
+	<DockPanel LastChildFill="True">
+		<Grid DockPanel.Dock="Top" Margin="5">
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"></ColumnDefinition>
+				<ColumnDefinition Width="*"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+
+
+			<TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">UUID version</TextBlock>
+			<StackPanel  Grid.Row="0" Grid.Column="1" Margin="5" Orientation="Horizontal"  HorizontalAlignment="Left">
+				<RadioButton Margin="5" Content="NIL" FontSize="10" Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}" />
+				<RadioButton Margin="5" Content="v1" FontSize="10" Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}" />
+				<RadioButton Margin="5" Content="v2" FontSize="10" Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}" />
+				<RadioButton Margin="5" Content="v3" IsChecked="True" FontSize="10" Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}" />
+				<RadioButton Margin="5" Content="v4" FontSize="10" Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}" />
+				<RadioButton Margin="5" Content="v5" FontSize="10" Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}" />
+			</StackPanel>
+
+			<TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Quantity</TextBlock>
+			<md:NumericUpDown Grid.Row="1" Grid.Column="1" Margin="5" Value="{Binding Quantity}" Minimum="1" Maximum="50"/>
+
+			<TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center">Namespace</TextBlock>
+			<StackPanel  Grid.Row="2" Grid.Column="1" Margin="5" Orientation="Horizontal" HorizontalAlignment="Left">
+				<RadioButton Margin="5" Content="DNS" FontSize="10" Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}" />
+				<RadioButton Margin="5" Content="URL"  IsChecked="True" FontSize="10" Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}" />
+				<RadioButton Margin="5" Content="OID" FontSize="10" Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}" />
+				<RadioButton Margin="5" Content="X500" FontSize="10" Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}" />
+			</StackPanel>
+
+			<TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center">Name</TextBlock>
+			<TextBox Grid.Row="3" Grid.Column="1" Margin="5" TextWrapping="NoWrap" MaxLines="1"></TextBox>
+
+		</Grid>
+
+		<StackPanel>
+			<Separator></Separator>
+
+			<TextBox Margin="5" MinLines="1" MaxLines="50" VerticalScrollBarVisibility="Auto" MaxHeight="480" TextAlignment="Center" FontFamily="Cascadia Mono" IsReadOnly="True" Style="{StaticResource MaterialDesignOutlinedTextBox}" 
+				Text="{Binding UUIDs}"/>
+		</StackPanel>
+		
+
+	</DockPanel>
+</UserControl>
