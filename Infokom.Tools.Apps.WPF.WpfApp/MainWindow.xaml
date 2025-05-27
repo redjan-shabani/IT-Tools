@@ -42,7 +42,7 @@
 						<TextBlock>Generate random string with the chars you want, uppercase or lowercase letters, numbers and/or symbols.</TextBlock>
 						<Separator BorderBrush="Gray" BorderThickness="1"></Separator>
 					</StackPanel>
-					
+
 					<local:TokenGenerator VerticalAlignment="Top" Margin="5" Background="LightGray"></local:TokenGenerator>
 				</StackPanel>
 			</TabItem>
@@ -71,7 +71,7 @@
 			<TabItem >
 				<TabItem.Header>
 					<StackPanel Orientation="Horizontal" Width="240" HorizontalAlignment="Left">
-						<md:PackIcon VerticalAlignment="Center" Width="24" Height="24" Kind="EyeOff" />
+						<md:PackIcon VerticalAlignment="Center" Width="24" Height="24" Kind="Fingerprint" />
 						<TextBlock VerticalAlignment="Center" Text="UUIDs generator" />
 					</StackPanel>
 				</TabItem.Header>
@@ -85,8 +85,26 @@
 					<local:UUIDGenerator VerticalAlignment="Top" Margin="5" Background="LightGray"></local:UUIDGenerator>
 				</StackPanel>
 			</TabItem>
-		</TabControl>
 
+			<!-- ULID Geberator -->
+			<TabItem >
+				<TabItem.Header>
+					<StackPanel Orientation="Horizontal" Width="240" HorizontalAlignment="Left">
+						<md:PackIcon VerticalAlignment="Center" Width="24" Height="24" Kind="CubeScan" />
+						<TextBlock VerticalAlignment="Center" Text="ULID generator" />
+					</StackPanel>
+				</TabItem.Header>
+				<StackPanel Orientation="Vertical" Margin="5">
+					<StackPanel Width="640" Margin="5">
+						<TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}">ULID generator</TextBlock>
+						<TextBlock TextWrapping="Wrap">Generate random Universally Unique Lexicographically Sortable Identifier (ULID).</TextBlock>
+						<Separator BorderBrush="Gray" BorderThickness="1"></Separator>
+					</StackPanel>
+
+					<local:ULIDGenerator VerticalAlignment="Top" Margin="5" Background="LightGray"></local:ULIDGenerator>
+				</StackPanel>
+			</TabItem>
+		</TabControl>
 
 	</DockPanel>
 </Window>

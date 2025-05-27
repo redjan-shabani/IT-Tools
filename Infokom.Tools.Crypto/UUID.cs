@@ -3,6 +3,7 @@ using System.Text;
 
 namespace Infokom.Tools.Crypto
 {
+
 	public static class UUID
 	{
 		public enum Version : byte
@@ -35,12 +36,12 @@ namespace Infokom.Tools.Crypto
 		{
 			Namespace.DNS => Guid.Parse(DNS_NAMESPACE),
 			Namespace.URL => Guid.Parse(URL_NAMESPACE),
-			Namespace.OID =>  Guid.Parse(OID_NAMESPACE),
-			Namespace.X500 =>  Guid.Parse(X500_NAMESPACE),
+			Namespace.OID => Guid.Parse(OID_NAMESPACE),
+			Namespace.X500 => Guid.Parse(X500_NAMESPACE),
 			_ => throw new InvalidOperationException(),
 		};
 
-		
+
 
 
 		// RFC 4122 requires specific byte order

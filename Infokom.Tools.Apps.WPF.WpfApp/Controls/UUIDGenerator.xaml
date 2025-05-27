@@ -57,6 +57,21 @@
 
 		</Grid>
 
+		<StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+			<Button Margin="5" Command="{Binding CopyCommand}">
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+					<md:PackIcon Kind="ContentCopy" VerticalAlignment="Center"></md:PackIcon>
+					<TextBlock VerticalAlignment="Center">Copy</TextBlock>
+				</StackPanel>
+			</Button>
+			<Button Margin="5" Command="{Binding RefreshCommand}">
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+					<md:PackIcon Kind="Refresh" VerticalAlignment="Center"></md:PackIcon>
+					<TextBlock VerticalAlignment="Center">Refresh</TextBlock>
+				</StackPanel>
+			</Button>
+		</StackPanel>
+
 		<TextBox Margin="5" VerticalScrollBarVisibility="Auto" MaxHeight="480" TextAlignment="Center" FontFamily="Cascadia Mono" IsReadOnly="True" Style="{StaticResource MaterialDesignOutlinedTextBox}" 
 			Text="{Binding UUIDs}"/>
 
