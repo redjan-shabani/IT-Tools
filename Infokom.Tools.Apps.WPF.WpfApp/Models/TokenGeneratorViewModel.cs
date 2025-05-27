@@ -11,6 +11,7 @@ using System.Windows.Media;
 
 namespace Infokom.Tools.Apps.WPF.WpfApp
 {
+
 	public class TokenGeneratorViewModel : DependencyObject
 	{
 		public static readonly DependencyProperty WithUppercaseProperty =

@@ -15,14 +15,22 @@ using System.Windows.Shapes;
 
 namespace Infokom.Tools.Apps.WPF.WpfApp
 {
-    /// <summary>
-    /// Interaction logic for HashText.xaml
-    /// </summary>
-    public partial class HashText : UserControl
-    {
-        public HashText()
-        {
-            InitializeComponent();
-        }
-    }
+	/// <summary>
+	/// Interaction logic for HashText.xaml
+	/// </summary>
+	public partial class HashText : UserControl
+	{
+		public HashText()
+		{
+			InitializeComponent();
+		}
+
+		private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			if(DataContext is HashTextViewModel vm)
+			{
+				vm.ComputeHashes();
+			}
+		}
+	}
 }

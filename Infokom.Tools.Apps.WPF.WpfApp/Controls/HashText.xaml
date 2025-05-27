@@ -7,28 +7,94 @@
              xmlns:local="clr-namespace:Infokom.Tools.Apps.WPF.WpfApp"
              Width="640" MinWidth="640" MaxWidth="640"
 		   Background="LightGray">
-	<StackPanel Orientation="Vertical" Margin="5">
 
-		<TextBox Margin="5" MinLines="5" MaxLines="5" TextWrapping="Wrap" AcceptsReturn="True" md:HintAssist.Hint="Text to hash" md:HintAssist.IsFloating="True" VerticalAlignment="Top" Text="HELLO" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+	<UserControl.DataContext>
+		<local:HashTextViewModel></local:HashTextViewModel>
+	</UserControl.DataContext>
 
-		<ComboBox Margin="5" md:HintAssist.Hint="Digest encoding" md:TextFieldAssist.HasClearButton="True" md:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-			<ComboBoxItem Content="Binary (base 2)"></ComboBoxItem>
-			<ComboBoxItem Content="Hexadecimal (base 16)"></ComboBoxItem>
-			<ComboBoxItem Content="Base64 (base 64)"></ComboBoxItem>
-			<ComboBoxItem Content="Base64url (base 64 with url safe chars)"></ComboBoxItem>
-          </ComboBox>
+	<DockPanel LastChildFill="True">
 
-		<Separator></Separator>
+		<StackPanel DockPanel.Dock="Top" Orientation="Vertical" Margin="5">
 
-		<TextBox Margin="5" MaxLines="1" TextWrapping="NoWrap" md:HintAssist.Hint="MD5" md:HintAssist.IsFloating="True" Text="HELLO" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-		<TextBox Margin="5" MaxLines="1" TextWrapping="NoWrap" md:HintAssist.Hint="SHA1" md:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-		<TextBox Margin="5" MaxLines="1" TextWrapping="NoWrap" md:HintAssist.Hint="SHA256" md:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-		<TextBox Margin="5" MaxLines="1" TextWrapping="NoWrap" md:HintAssist.Hint="SHA224" md:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-		<TextBox Margin="5" MaxLines="1" TextWrapping="NoWrap" md:HintAssist.Hint="SHA512" md:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-		<TextBox Margin="5" MaxLines="1" TextWrapping="NoWrap" md:HintAssist.Hint="SHA384" md:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-		<TextBox Margin="5" MaxLines="1" TextWrapping="NoWrap" md:HintAssist.Hint="SHA3" md:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-		<TextBox Margin="5" MaxLines="1" TextWrapping="NoWrap" md:HintAssist.Hint="RIPEMD160" md:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+			<TextBox Margin="5" MinLines="5" MaxLines="5" TextWrapping="Wrap" AcceptsReturn="True" md:HintAssist.Hint="Text to hash" md:HintAssist.IsFloating="True" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+				Text="{Binding Path=TextToHash, UpdateSourceTrigger=PropertyChanged}" 				
+				/>
+
+			<ComboBox Margin="5" md:HintAssist.Hint="Digest encoding" md:TextFieldAssist.HasClearButton="True" md:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding DigestEncodings}" SelectedValue="{Binding DigestEncoding}">
+				
+			</ComboBox>
+		</StackPanel>
+
+		<Grid Margin="5">
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"></ColumnDefinition>
+				<ColumnDefinition Width="*"></ColumnDefinition>
+				<ColumnDefinition Width="Auto"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
 
 
-	</StackPanel>
+			<TextBlock Grid.Row="0" Grid.Column="0" Margin="5" Text="MD5:"></TextBlock>
+			<TextBlock Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding MD5}"></TextBlock>
+			<Button Grid.Row="0" Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}" Command="">
+				<md:PackIcon Kind="ContentCopy" VerticalAlignment="Center" />
+			</Button>
+
+			<TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="SHA1:"></TextBlock>
+			<TextBlock Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding SHA1}"></TextBlock>
+			<Button Grid.Row="1" Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}">
+				<md:PackIcon Kind="ContentCopy" VerticalAlignment="Center" />
+			</Button>
+
+			<TextBlock Grid.Row="2" Grid.Column="0" Margin="5" Text="SHA256:"></TextBlock>
+			<TextBlock Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding SHA256}"></TextBlock>
+			<Button Grid.Row="2" Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}">
+				<md:PackIcon Kind="ContentCopy" VerticalAlignment="Center" />
+			</Button>
+
+			<TextBlock Grid.Row="3" Grid.Column="0" Margin="5" Text="SHA224:"></TextBlock>
+			<TextBlock Grid.Row="3" Grid.Column="1" Margin="5" Text="{Binding SHA224}"></TextBlock>
+			<Button Grid.Row="3" Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}">
+				<md:PackIcon Kind="ContentCopy" VerticalAlignment="Center" />
+			</Button>
+
+			<TextBlock Grid.Row="4" Grid.Column="0" Margin="5" Text="SHA512:"></TextBlock>
+			<TextBlock Grid.Row="4" Grid.Column="1" Margin="5" Text="{Binding SHA512}"></TextBlock>
+			<Button Grid.Row="4" Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}">
+				<md:PackIcon Kind="ContentCopy" VerticalAlignment="Center" />
+			</Button>
+
+			<TextBlock Grid.Row="5" Grid.Column="0" Margin="5" Text="SHA384:"></TextBlock>
+			<TextBlock Grid.Row="5" Grid.Column="1" Margin="5" Text="{Binding SHA384}"></TextBlock>
+			<Button Grid.Row="5" Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}">
+				<md:PackIcon Kind="ContentCopy" VerticalAlignment="Center" />
+			</Button>
+
+			<TextBlock Grid.Row="6" Grid.Column="0" Margin="5" Text="SHA3:"></TextBlock>
+			<TextBlock Grid.Row="6" Grid.Column="1" Margin="5" Text="{Binding SHA3}"></TextBlock>
+			<Button Grid.Row="6" Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}">
+				<md:PackIcon Kind="ContentCopy" VerticalAlignment="Center" />
+			</Button>
+
+			<TextBlock Grid.Row="7" Grid.Column="0" Margin="5" Text="RIPEMD160:"></TextBlock>
+			<TextBlock Grid.Row="7" Grid.Column="1" Margin="5" Text="{Binding RIPEMD160}"></TextBlock>
+			<Button Grid.Row="7" Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}">
+				<md:PackIcon Kind="ContentCopy" VerticalAlignment="Center" />
+			</Button>
+
+		</Grid>
+
+
+
+	</DockPanel>
 </UserControl>
