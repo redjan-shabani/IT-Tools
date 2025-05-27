@@ -4,7 +4,6 @@ using System.Reactive.Disposables;
 
 namespace Infokom.Tools.Crypto
 {
-
 	public static class Tokens
 	{
 		private const string UPPERCASE = "ABCDEFGHIJKLMOPQRSTUVWXYZ";
