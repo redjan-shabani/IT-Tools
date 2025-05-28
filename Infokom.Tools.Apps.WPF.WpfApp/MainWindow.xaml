@@ -26,13 +26,79 @@
 		</StackPanel>
 
 
-		<TabControl TabStripPlacement="Left">
+		<TabControl x:Name="TabControlMain" TabStripPlacement="Left">
+
+			<TabItem IsSelected="True">
+				<TabItem.Header>
+					<TextBlock VerticalAlignment="Center" FontWeight="Bold" FontSize="22" Text="CRYPTO" />
+				</TabItem.Header>
+				<WrapPanel Orientation="Horizontal">
+					<Button Width="320" Height="90" Margin="5" Click="ButtonShowTokenGenerator_Click">
+						<DockPanel LastChildFill="True">
+							<StackPanel DockPanel.Dock="Top" Margin="5" Orientation="Horizontal">
+								<md:PackIcon Kind="Coins" VerticalAlignment="Center" Margin="5" />
+								<TextBlock VerticalAlignment="Center" Text="Token Generator" />
+							</StackPanel>
+							<TextBlock Margin="5" TextWrapping="Wrap" FontSize="10">Generate random string with the chars you want, uppercase or lowercase letters, numbers and/or symbols.</TextBlock>
+						</DockPanel>
+					</Button>
+					<Button Width="320" Height="90" Margin="5" Click="ButtonShowHashText_Click">
+						<DockPanel LastChildFill="True">
+							<StackPanel DockPanel.Dock="Top" Margin="5" Orientation="Horizontal">
+								<md:PackIcon Kind="EyeOff" VerticalAlignment="Center" Margin="5" />
+								<TextBlock VerticalAlignment="Center" Text="Hash Text" />
+							</StackPanel>
+							<TextBlock Margin="5" TextWrapping="Wrap" FontSize="10">Generate random string with the chars you want, uppercase or lowercase letters, numbers and/or symbols.</TextBlock>
+						</DockPanel>
+					</Button>
+					<Button Width="320" Height="90" Margin="5" Click="ButtonShowUUIDGenerator_Click">
+						<DockPanel LastChildFill="True">
+							<StackPanel DockPanel.Dock="Top" Margin="5" Orientation="Horizontal">
+								<md:PackIcon Kind="Fingerprint" VerticalAlignment="Center" Margin="5" />
+								<TextBlock VerticalAlignment="Center" Text="UUID Generator" />
+							</StackPanel>
+							<TextBlock Margin="5" TextWrapping="Wrap" FontSize="10">Generate random string with the chars you want, uppercase or lowercase letters, numbers and/or symbols.</TextBlock>
+						</DockPanel>
+					</Button>
+					<Button Width="320" Height="90" Margin="5" Click="ButtonShowULIDGenerator_Click">
+						<DockPanel LastChildFill="True">
+							<StackPanel DockPanel.Dock="Top" Margin="5" Orientation="Horizontal">
+								<md:PackIcon Kind="CubeScan" VerticalAlignment="Center" Margin="5" />
+								<TextBlock VerticalAlignment="Center" Text="ULID Generator" />
+							</StackPanel>
+							<TextBlock Margin="5" TextWrapping="Wrap" FontSize="10">Generate random string with the chars you want, uppercase or lowercase letters, numbers and/or symbols.</TextBlock>
+						</DockPanel>
+					</Button>
+					<Button Width="320" Height="90" Margin="5" Click="ButtonShowTextCipher_Click">
+						<DockPanel LastChildFill="True">
+							<StackPanel DockPanel.Dock="Top" Margin="5" Orientation="Horizontal">
+								<md:PackIcon Kind="Encryption" VerticalAlignment="Center" Margin="5" />
+								<TextBlock VerticalAlignment="Center" Text="Text Cipher" />
+							</StackPanel>
+							<TextBlock Margin="5" TextWrapping="Wrap" FontSize="10">Generate random string with the chars you want, uppercase or lowercase letters, numbers and/or symbols.</TextBlock>
+						</DockPanel>
+					</Button>
+					<Button Width="320" Height="90" Margin="5" Click="ButtonShowRSAKeyPairGenerator_Click">
+						<DockPanel LastChildFill="True">
+							<StackPanel DockPanel.Dock="Top" Margin="5" Orientation="Horizontal">
+								<md:PackIcon Kind="Certificate" VerticalAlignment="Center" Margin="5" />
+								<TextBlock VerticalAlignment="Center" Text="RSA Key Pair Generator" />
+							</StackPanel>
+							<TextBlock Margin="5" TextWrapping="Wrap" FontSize="10">Generate random string with the chars you want, uppercase or lowercase letters, numbers and/or symbols.</TextBlock>
+						</DockPanel>
+					</Button>
+				</WrapPanel>
+
+			</TabItem>
+
+
+
 
 			<!-- TOKEN GENERATOR -->
-			<TabItem>
+			<TabItem x:Name="TabItemTokenGenerator">
 				<TabItem.Header>
 					<StackPanel Orientation="Horizontal" Width="240" HorizontalAlignment="Left">
-						<md:PackIcon VerticalAlignment="Center" Width="24" Height="24" Kind="Coins" />
+						<md:PackIcon VerticalAlignment="Center" Kind="Coins" />
 						<TextBlock VerticalAlignment="Center" Text="Token Generator" />
 					</StackPanel>
 				</TabItem.Header>
@@ -49,10 +115,10 @@
 
 
 			<!-- HASH TEXT -->
-			<TabItem >
+			<TabItem x:Name="TabItemHashText">
 				<TabItem.Header>
 					<StackPanel Orientation="Horizontal" Width="240" HorizontalAlignment="Left">
-						<md:PackIcon VerticalAlignment="Center" Width="24" Height="24" Kind="EyeOff" />
+						<md:PackIcon VerticalAlignment="Center" Kind="EyeOff" />
 						<TextBlock VerticalAlignment="Center" Text="Hash text" />
 					</StackPanel>
 				</TabItem.Header>
@@ -68,10 +134,10 @@
 			</TabItem>
 
 			<!-- UUID Geberator -->
-			<TabItem >
+			<TabItem x:Name="TabItemUUIDGenerator">
 				<TabItem.Header>
 					<StackPanel Orientation="Horizontal" Width="240" HorizontalAlignment="Left">
-						<md:PackIcon VerticalAlignment="Center" Width="24" Height="24" Kind="Fingerprint" />
+						<md:PackIcon VerticalAlignment="Center" Kind="Fingerprint" />
 						<TextBlock VerticalAlignment="Center" Text="UUIDs generator" />
 					</StackPanel>
 				</TabItem.Header>
@@ -87,10 +153,10 @@
 			</TabItem>
 
 			<!-- ULID Geberator -->
-			<TabItem >
+			<TabItem x:Name="TabItemULIDGenerator" >
 				<TabItem.Header>
 					<StackPanel Orientation="Horizontal" Width="240" HorizontalAlignment="Left">
-						<md:PackIcon VerticalAlignment="Center" Width="24" Height="24" Kind="CubeScan" />
+						<md:PackIcon VerticalAlignment="Center" Kind="CubeScan" />
 						<TextBlock VerticalAlignment="Center" Text="ULID generator" />
 					</StackPanel>
 				</TabItem.Header>
@@ -107,10 +173,10 @@
 
 
 			<!-- Cipher -->
-			<TabItem >
+			<TabItem x:Name="TabItemTextCypher">
 				<TabItem.Header>
 					<StackPanel Orientation="Horizontal" Width="240" HorizontalAlignment="Left">
-						<md:PackIcon VerticalAlignment="Center" Width="24" Height="24" Kind="Encryption" />
+						<md:PackIcon VerticalAlignment="Center" Kind="Encryption" />
 						<TextBlock VerticalAlignment="Center" Text="Text cipher" />
 					</StackPanel>
 				</TabItem.Header>
@@ -128,6 +194,69 @@
 					</StackPanel>
 				</StackPanel>
 			</TabItem>
+
+			<!-- RSA key pair generator -->
+			<TabItem x:Name="TabItemRSAKeyPairGenerator">
+				<TabItem.Header>
+					<StackPanel Orientation="Horizontal" Width="240" HorizontalAlignment="Left">
+						<md:PackIcon VerticalAlignment="Center" Kind="Certificate" />
+						<TextBlock VerticalAlignment="Center" Text="RSA key pair generator" />
+					</StackPanel>
+				</TabItem.Header>
+				<DockPanel LastChildFill="True" Margin="5">
+					<StackPanel DockPanel.Dock="Top" Width="640" Margin="5">
+						<TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}">RSA key pair generator</TextBlock>
+						<TextBlock TextWrapping="Wrap">Generate a new random RSA private and public pem certificate key pair.</TextBlock>
+						<Separator BorderBrush="Gray" BorderThickness="1"></Separator>
+					</StackPanel>
+
+					<local:RSAKeyPairGenerator></local:RSAKeyPairGenerator>
+				</DockPanel>
+			</TabItem>
+
+
+
+
+			<TabItem IsSelected="True">
+				<TabItem.Header>
+					<TextBlock VerticalAlignment="Center" FontWeight="Bold" FontSize="22" Text="CONVERT" />
+				</TabItem.Header>
+				<WrapPanel Orientation="Horizontal">
+					<Button Width="320" Height="90" Margin="5" Click="ButtonShowDateTimeConverter_Click">
+						<DockPanel LastChildFill="True">
+							<StackPanel DockPanel.Dock="Top" Margin="5" Orientation="Horizontal">
+								<md:PackIcon Kind="Calendar" VerticalAlignment="Center" Margin="5" />
+								<TextBlock VerticalAlignment="Center" Text="Date/Time Converter" />
+							</StackPanel>
+							<TextBlock Margin="5" TextWrapping="Wrap" FontSize="10">Convert date and time into the various different formats.</TextBlock>
+						</DockPanel>
+					</Button>
+					
+				</WrapPanel>
+
+			</TabItem>
+
+			<!-- RSA key pair generator -->
+			<TabItem x:Name="TabItemDateTimeConverter">
+				<TabItem.Header>
+					<StackPanel Orientation="Horizontal" Width="240" HorizontalAlignment="Left">
+						<md:PackIcon VerticalAlignment="Center" Kind="Calendar" />
+						<TextBlock VerticalAlignment="Center" Text="Date/Time Converter" />
+					</StackPanel>
+				</TabItem.Header>
+				<StackPanel Orientation="Vertical" Margin="5">
+					<StackPanel  Width="640" Margin="5">
+						<TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}">Date/Time Converter</TextBlock>
+						<TextBlock TextWrapping="Wrap">Convert date and time into the various different formats.</TextBlock>
+						<Separator BorderBrush="Gray" BorderThickness="1"></Separator>
+					</StackPanel>
+
+					<local:DateTimeConverter/>
+				</StackPanel>
+			</TabItem>
+
+
+
 		</TabControl>
 
 	</DockPanel>

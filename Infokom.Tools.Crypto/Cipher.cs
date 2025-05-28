@@ -1,5 +1,4 @@
 ﻿using System.Security.Cryptography;
-using System.Text;
 
 namespace Infokom.Tools.Crypto
 {
@@ -88,5 +87,4 @@ namespace Infokom.Tools.Crypto
 			}
 		}
 	}
-
 }

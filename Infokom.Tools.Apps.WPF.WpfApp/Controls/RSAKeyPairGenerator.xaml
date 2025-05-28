@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="Infokom.Tools.Apps.WPF.WpfApp.RSAKeyPairGenerator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+			xmlns:local="clr-namespace:Infokom.Tools.Apps.WPF.WpfApp"
+			Width="1200" MinWidth="640" MaxWidth="1280"
+			Background="LightGray">
+
+	<UserControl.DataContext>
+		<local:RSAKeyPairGeneratorViewModel></local:RSAKeyPairGeneratorViewModel>
+	</UserControl.DataContext>
+	<DockPanel>
+		<StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+			<TextBlock Margin="5" VerticalAlignment="Center" FontWeight="Bold" Text="Bits:"></TextBlock>
+			<md:NumericUpDown Margin="5" Width="150" HorizontalContentAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MaterialDesignNumericUpDown}" FontWeight="Bold" Minimum="512" Maximum="4096" ValueStep="8" Value="{Binding KeySize}"/>
+			<Button Margin="5" FontSize="13" Content="Refresh key-pair" Style="{StaticResource MaterialDesignPaperButton}" Command="{Binding RefreshCommand}"/>			
+		</StackPanel>
+
+
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition></ColumnDefinition>
+				<ColumnDefinition></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+
+
+			<DockPanel Grid.Row="0" Grid.Column="0" LastChildFill="True" Margin="5">
+				<TextBlock DockPanel.Dock="Top"  Margin="5" VerticalAlignment="Center" FontWeight="Bold">Public key:</TextBlock>
+				<TextBox  Margin="5" Style="{StaticResource MaterialDesignOutlinedTextBox}" TextWrapping="Wrap" MinLines="10" VerticalScrollBarVisibility="Visible" 
+					FontFamily="Cascadia Mono"
+					Text="{Binding PublicKey}" VerticalContentAlignment="Top"
+				/>
+			</DockPanel>
+
+			<DockPanel Grid.Row="0" Grid.Column="1" LastChildFill="True">
+				<TextBlock DockPanel.Dock="Top" Margin="5" VerticalAlignment="Center" FontWeight="Bold">Private key:</TextBlock>
+				<TextBox  Margin="5" Style="{StaticResource MaterialDesignOutlinedTextBox}" TextWrapping="Wrap" MinLines="10" VerticalScrollBarVisibility="Visible" 
+					FontFamily="Cascadia Mono"
+					Text="{Binding PrivateKey}" VerticalContentAlignment="Top"
+				/>
+			</DockPanel>
+		</Grid>
+     </DockPanel>
+
+	
+</UserControl>

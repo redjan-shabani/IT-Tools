@@ -25,5 +25,42 @@ namespace Infokom.Tools.Apps.WPF.WpfApp
 		{
 			
 		}
+
+		private void ButtonShowTokenGenerator_Click(object sender, RoutedEventArgs e)
+		{
+			TabControlMain.SelectedItem = TabItemTokenGenerator;
+		}
+
+		private void ButtonShowHashText_Click(object sender, RoutedEventArgs e)
+		{
+			TabControlMain.SelectedItem = TabItemHashText;
+		}
+
+		private void ButtonShowTextCipher_Click(object sender, RoutedEventArgs e)
+		{
+			TabControlMain.SelectedItem = TabItemTextCypher;
+		}
+
+		private void ButtonShowUUIDGenerator_Click(object sender, RoutedEventArgs e)
+		{
+			TabControlMain.SelectedItem = TabItemUUIDGenerator;
+		}
+
+		private void ButtonShowULIDGenerator_Click(object sender, RoutedEventArgs e)
+		{
+			TabControlMain.SelectedItem = TabItemULIDGenerator;
+		}
+
+		private void ButtonShowRSAKeyPairGenerator_Click(object sender, RoutedEventArgs e)
+		{
+			TabControlMain.SelectedItem = TabItemRSAKeyPairGenerator;
+		}
+
+
+
+		private void ButtonShowDateTimeConverter_Click(object sender, RoutedEventArgs e)
+		{
+			TabControlMain.SelectedItem = TabItemRSAKeyPairGenerator;
+		}
 	}
 }

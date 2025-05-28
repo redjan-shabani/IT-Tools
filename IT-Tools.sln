@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infokom.Tools.Crypto", "Inf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infokom.Tools", "Infokom.Tools\Infokom.Tools.csproj", "{F681B591-85F9-4597-8E51-AF381EC4B441}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infokom.Tools.Converters", "Infokom.Tools.Converters\Infokom.Tools.Converters.csproj", "{876A4CAD-2A66-4956-9316-88B609F41AE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F681B591-85F9-4597-8E51-AF381EC4B441}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F681B591-85F9-4597-8E51-AF381EC4B441}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F681B591-85F9-4597-8E51-AF381EC4B441}.Release|Any CPU.Build.0 = Release|Any CPU
+		{876A4CAD-2A66-4956-9316-88B609F41AE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{876A4CAD-2A66-4956-9316-88B609F41AE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{876A4CAD-2A66-4956-9316-88B609F41AE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{876A4CAD-2A66-4956-9316-88B609F41AE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
