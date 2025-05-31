@@ -10,7 +10,7 @@
 
 	<div class="row">
 		<div class="col-12 col-md-6 col-lg-4 col-xl-3">
-			<Card>
+			<Card Class="h-100">
 				<CardHeader>
 					<div class="d-flex justify-content-between">
 						<CardTitle>GUID Generator</CardTitle>
@@ -31,15 +31,19 @@
 
 		<div class="col-12 col-md-6 col-lg-4 col-xl-3">
 			<Card Class="h-100">
-				<CardHeader Class="d-flex justify-content-between">
-					<Icon Name="IconName.Question"></Icon>
-					<CardTitle> </CardTitle>
+				<CardHeader>
+					<div class="d-flex justify-content-between">
+						<CardTitle>Token Generator</CardTitle>
+						<Icon Name="IconName.Coin" Size="IconSize.x5"></Icon>
+					</div>
 				</CardHeader>
 				<CardBody>
-					<CardText></CardText>
+					<CardText>Generate random string with the chars you want, uppercase or lowercase letters, numbers and/or symbols.</CardText>
 				</CardBody>
 				<CardFooter>
-					<NavLink href="">Open</NavLink>
+					<div class="d-flex justify-content-end">
+						<NavLink href="/Generators/TokenGenerator">Open</NavLink>
+					</div>
 				</CardFooter>
 			</Card>
 		</div>

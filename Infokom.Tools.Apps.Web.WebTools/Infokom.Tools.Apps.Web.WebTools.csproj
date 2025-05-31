@@ -10,4 +10,8 @@
     <PackageReference Include="Blazor.Bootstrap" Version="3.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Infokom.Tools.Crypto\Infokom.Tools.Crypto.csproj" />
+  </ItemGroup>
+
 </Project>

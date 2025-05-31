@@ -1,0 +1,96 @@
+﻿@page "/Generators/TokenGenerator"
+@using Infokom.Tools.Crypto
+
+@inject IJSRuntime JSRuntime
+
+
+<div class="container">
+	<center><h3>Token Generator</h3></center>
+	<hr class="divider" />
+
+	<Card>
+		<CardHeader>
+			<div class="d-flex gap-5 justify-content-between">
+				<div class="d-flex flex-nowrap gap-2">
+					<label class="col-form-label">Count</label>
+					<NumberInput TValue="int" Placeholder="Input how many records you want to generate (1-2000)!" Min="1" Max="1000" @bind-Value="Count" />
+				</div>
+				<div class="d-flex flex-nowrap gap-3 justify-content-end align-items-center">
+					<CheckboxInput Label="Uppercase (ABC...)" @bind-Value="Uppercase" />
+					<CheckboxInput Label="Lowercase (abc...)" @bind-Value="Lowercase" />
+					<CheckboxInput Label="Numbers (123...)" @bind-Value="Numbers" />
+					<CheckboxInput Label="Symbols (!-;...)" @bind-Value="Symbols" />
+				</div>
+			</div>
+		</CardHeader>
+		<CardBody>
+			<TextAreaInput Style="font-family: monospace; text-align: center;" Rows="13" Cols="70" @bind-Value="EntriesText"></TextAreaInput>
+		</CardBody>
+		<CardFooter>
+			<div class="d-flex flex-nowrap justify-content-between">
+				<Button Color="ButtonColor.Light" @onclick="Copy">
+					Copy
+				</Button>
+				<Button Color="ButtonColor.Primary" @onclick="Generate">
+					Refresh
+				</Button>
+			</div>
+		</CardFooter>
+	</Card>
+</div>
+
+@code {
+
+	private int Count { get; set; } = 10;
+
+	private bool Uppercase { get; set; } = true;
+	private bool Lowercase { get; set; } = true;
+	private bool Numbers { get; set; } = true;
+	private bool Symbols { get; set; } = false;
+	private int Length { get; set; } = 64;
+
+	private bool Loading { get; set; }
+
+	private List<string> Entries { get; set; } = new List<string>();
+
+	private string EntriesText { get; set; } = string.Empty;
+
+	private async Task Generate()
+	{
+		this.Loading = true;
+
+		this.Entries.Clear();
+
+		this.EntriesText = string.Empty;
+
+		await Task.Run(() =>
+		{
+			try
+			{
+				for (int i = 0; i < Count; i++)
+				{
+					var token = Infokom.Tools.Crypto.Tokens.GenerateToken(this.Uppercase, this.Lowercase, this.Numbers, this.Symbols, this.Length);
+
+					this.Entries.Add(token);
+				}
+
+				this.EntriesText = string.Join("\n", this.Entries);
+			}
+			finally
+			{
+				this.Loading = false;
+			}
+		});
+	}
+
+	private async Task Copy()
+	{
+		await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", EntriesText);
+	}
+
+
+	private async Task Export()
+	{
+		
+	}
+}

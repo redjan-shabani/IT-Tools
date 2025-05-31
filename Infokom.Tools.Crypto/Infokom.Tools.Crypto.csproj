@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Infokom.Tools\Infokom.Tools.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Atomics\" />
+  </ItemGroup>
+
 </Project>
