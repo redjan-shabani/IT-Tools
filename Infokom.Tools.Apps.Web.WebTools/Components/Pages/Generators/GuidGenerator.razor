@@ -1,0 +1,72 @@
+﻿@page "/Generators/GuidGenerator"
+
+
+<div class="container">
+	<center><h3>GUID Generator</h3></center>
+	<hr class="divider" />
+
+	<Card>
+		<CardHeader>
+			<div class="d-flex gap-5 justify-content-between">
+				<div class="d-flex flex-nowrap gap-2">
+					<label class="col-form-label">Count</label>
+					<NumberInput TValue="int" Placeholder="Input how many records you want to generate (1-2000)!" Min="1" Max="1000" @bind-Value="GuidCount" />
+				</div>
+				<div class="d-flex flex-nowrap gap-3 justify-content-end align-items-center">
+					<CheckboxInput Label="Uppercase" @bind-Value="Uppercase" />
+					<CheckboxInput Label="Braces" @bind-Value="Braces"></CheckboxInput>
+					<CheckboxInput Label="Hyphens" @bind-Value="Hyphens"></CheckboxInput>
+					<CheckboxInput Label="Commas" @bind-Value="Commas"></CheckboxInput>
+					<CheckboxInput Label="Quotes" @bind-Value="Quotes"></CheckboxInput>
+				</div>
+			</div>
+		</CardHeader>
+		<CardBody>
+			<TextAreaInput Style="font-family: monospace; text-align: center;" Rows="8" Cols="70" @bind-Value="generatedGuid"></TextAreaInput>
+
+		</CardBody>
+		<CardFooter>
+			<div class="d-flex flex-nowrap justify-content-end">
+				<Button @onclick="GenerateGuid">Generate GUIDs</Button>
+			</div>
+		</CardFooter>
+	</Card>
+</div>
+
+@code {
+
+	private int GuidCount { get; set; } = 5;
+
+	private bool Uppercase { get; set; }
+	private bool Braces { get; set; }
+	private bool Hyphens { get; set; } = true;
+	private bool Commas { get; set; }
+	private bool Quotes { get; set; }
+
+
+
+	private string generatedGuid = string.Empty;
+
+	private void GenerateGuid()
+	{
+		var text = string.Empty;
+
+		var guids = Enumerable.Range(0, GuidCount).Select(_ => Guid.NewGuid());
+		foreach (var guid in guids)
+		{
+			var line = this.Hyphens ? guid.ToString() : guid.ToString("N");
+			if (Uppercase)
+				line = line.ToUpperInvariant();
+			if (Braces)
+				line = $"{{{line}}}";
+			if (Quotes)
+				line = $"\"{line}\"";
+			if (Commas)
+				line = $"{line},";
+
+			text += line + "\n";
+		}
+
+		generatedGuid = text;
+	}
+}
