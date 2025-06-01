@@ -1,0 +1,61 @@
+﻿@inherits LayoutComponentBase
+
+@* <div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div> *@
+
+
+<div class="bb-page">
+
+	<Sidebar @ref="Sidebar" DataProvider="SidebarDataProvider" IconName="IconName.BootstrapFill" Title="DATA TOOLS" >
+          
+     </Sidebar>
+     <main>
+          <div class="bb-top-row px-4 d-flex justify-content-end">
+               <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+          </div>
+
+          <article class="content px-4">
+               <div class="container">@Body</div>
+          </article>
+     </main>
+</div>
+
+@code {
+	private Sidebar Sidebar { get; set; } = default!;
+
+     private IEnumerable<NavItem> NavItems { get; set; } = 
+     [
+          new NavItem { Id = "0", Href = "/", IconName = IconName.HouseDoorFill, Text = "Home", Match=NavLinkMatch.All},
+
+          new NavItem { Id = "1", Href = "#", IconName = IconName.Database, Text = "Generators"},
+          new NavItem { Id = "1.0", ParentId="1", Href = "/Generators", Text = "Index", Class="ms-4"},
+          new NavItem { Id = "1.1", ParentId="1", Href = "/Generators/GUID", IconName = IconName.Fingerprint, Text = "GUID Generator"},
+          new NavItem { Id = "1.2", ParentId="1", Href = "/Generators/ULID", IconName = IconName.SortNumericDown, Text = "ULID Generator"},
+          new NavItem { Id = "1.3", ParentId="1", Href = "/Generators/Token", IconName = IconName.Coin, Text = "Token Generator"},
+          new NavItem { Id = "1.4", ParentId="1", Href = "/Generators/RSAKeyPair", IconName = IconName.Passport, Text = "RSA Key Pair Generator"},
+
+          new NavItem { Id = "2", Href = "#", IconName = IconName.ArrowLeftRight, Text = "Converters"},
+          new NavItem { Id = "2.0", ParentId="2", Href = "/Converters", Text = "Index"},
+
+          new NavItem { Id = "3", Href = "#", IconName = IconName.Key, Text = "Cryptography"},
+          new NavItem { Id = "3.0", ParentId="3", Href = "/Cryptography", Text = "Index"},
+     ];
+
+     private async Task<SidebarDataProviderResult> SidebarDataProvider(SidebarDataProviderRequest request)
+     {
+          return await Task.FromResult(request.ApplyTo(NavItems));
+     }
+}

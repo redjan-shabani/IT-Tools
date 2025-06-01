@@ -1,0 +1,94 @@
+﻿@page "/Generators/GUID"
+
+
+<center><h3>GUID Generator</h3></center>
+<hr class="divider" />
+
+<Card>
+	<CardHeader>
+		<div class="d-flex justify-content-between">			
+			<div class="d-flex gap-3 align-items-center">
+				<CheckboxInput Label="Uppercase" @bind-Value="Uppercase" />
+				<CheckboxInput Label="Braces" @bind-Value="Braces"></CheckboxInput>
+				<CheckboxInput Label="Hyphens" @bind-Value="Hyphens"></CheckboxInput>
+				<CheckboxInput Label="Commas" @bind-Value="Commas"></CheckboxInput>
+				<CheckboxInput Label="Quotes" @bind-Value="Quotes"></CheckboxInput>
+			</div>
+			<div class="d-flex gap-3 align-items-center">
+				<label class="col-form-label">Count</label>
+				<NumberInput TValue="int" Placeholder="Input how many records you want to generate (1-2000)!" Min="1" Max="1000" @bind-Value="GuidCount" />
+			</div>
+		</div>
+	</CardHeader>
+	<CardBody>
+		<TextAreaInput Style="font-family: monospace; text-align: center;" Rows="12" Cols="70" @bind-Value="ResultText"></TextAreaInput>
+	</CardBody>
+	<CardFooter>
+		<div class="d-flex flex-nowrap justify-content-center gap-5">
+			<Button Style="width:150px" Color="ButtonColor.Primary" TooltipTitle="Copy to clipboard!" TooltipPlacement="TooltipPlacement.Right" @onclick="Copy">
+				<Icon Name="IconName.Copy" Size="IconSize.x5"></Icon>
+				Copy
+			</Button>
+			<Button Style="width:150px" Color="ButtonColor.Primary" @onclick="Generate">
+				<Icon Name="IconName.ArrowClockwise" Size="IconSize.x5"></Icon>
+				Refresh
+			</Button>
+		</div>
+	</CardFooter>
+</Card>
+
+@code {
+	[Inject]
+	private IJSRuntime JSRuntime { get; set; }
+
+	private int GuidCount { get; set; } = 10;
+
+	private bool Uppercase { get; set; }
+	private bool Braces { get; set; }
+	private bool Hyphens { get; set; } = true;
+	private bool Commas { get; set; }
+	private bool Quotes { get; set; }
+
+
+
+	private List<string> ResultItems { get; set; } = new List<string>();
+
+	private string ResultText { get; set; } = string.Empty;
+
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+
+		this.Generate();
+	}
+
+	private void Generate()
+	{
+		this.ResultText = string.Empty;
+
+		this.ResultItems.Clear();
+
+		var guids = Enumerable.Range(0, GuidCount).Select(_ => UUIDTools.GenerateV4());
+		foreach (var guid in guids)
+		{
+			var item = this.Hyphens ? guid.ToString() : guid.ToString("N");
+			if (Uppercase)
+				item = item.ToUpperInvariant();
+			if (Braces)
+				item = $"{{{item}}}";
+			if (Quotes)
+				item = $"\"{item}\"";
+			if (Commas)
+				item = $"{item},";
+
+			ResultItems.Add(item);
+		}
+
+		this.ResultText = string.Join("\n", this.ResultItems);
+	}
+
+	private async Task Copy()
+	{
+		await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", this.ResultText);
+	}
+}
