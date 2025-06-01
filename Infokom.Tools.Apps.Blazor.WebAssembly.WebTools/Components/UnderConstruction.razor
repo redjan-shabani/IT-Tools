@@ -1,0 +1,16 @@
+﻿
+<div class="d-flex flex-column align-items-center">
+	<h3>@Title</h3>
+	<hr class="separator"/>
+
+	<img class="img-fluid" src="img/under_construction.svg" width="640" />
+	<div class="m-5">@Message</div>
+</div>
+@code
+{
+	[Parameter]
+	public string Title { get; set; } = "Under Construction";
+	
+	[Parameter]
+	public string Message { get; set; } = "This page is under construction. Please check back later.";
+}

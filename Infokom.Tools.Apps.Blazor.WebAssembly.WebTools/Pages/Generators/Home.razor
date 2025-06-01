@@ -1,0 +1,87 @@
+﻿@page "/Generators"
+<div class="container">
+	<center><h3>DATA GENERATORS</h3></center>
+
+	<div class="d-flex flex-wrap gap-3 justify-content-around">
+		<div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2">
+			<Card Class="h-100">
+				<CardHeader>
+					<div class="d-flex justify-content-between">
+						<Icon Name="IconName.Fingerprint" Size="IconSize.x5"></Icon>
+						<CardTitle>GUID</CardTitle>
+					</div>
+				</CardHeader>
+				<CardBody>
+					<CardText>Generate GUID/UUID in variuous formats.</CardText>
+				</CardBody>
+				<CardFooter>
+					<div class="d-flex justify-content-end">
+						<NavLink href="/Generators/GUID">Open</NavLink>
+					</div>
+				</CardFooter>
+			</Card>
+		</div>
+
+		<div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2">
+			<Card Class="h-100">
+				<CardHeader Class="d-flex justify-content-between">
+					<Icon Name="IconName.SortNumericDown"></Icon>
+					<CardTitle>ULID</CardTitle>
+				</CardHeader>
+				<CardBody>
+					<CardText>Generate random Universally Unique Lexicographically Sortable Identifier.</CardText>
+				</CardBody>
+				<CardFooter>
+					<div class="d-flex justify-content-end">
+						<NavLink href="/Generators/ULID">Open</NavLink>
+					</div>
+				</CardFooter>
+			</Card>
+		</div>
+
+		<div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2">
+			<Card Class="h-100">
+				<CardHeader>
+					<div class="d-flex justify-content-between">
+						<Icon Name="IconName.Coin" Size="IconSize.x5"></Icon>
+						<CardTitle>Token</CardTitle>
+					</div>
+				</CardHeader>
+				<CardBody>
+					<CardText>Generate random string with the chars you want, uppercase or lowercase letters, numbers and/or symbols.</CardText>
+				</CardBody>
+				<CardFooter>
+					<div class="d-flex justify-content-end">
+						<NavLink href="/Generators/Token">Open</NavLink>
+					</div>
+				</CardFooter>
+			</Card>
+		</div>
+
+
+
+		<div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2">
+			<Card Class="h-100">
+				<CardHeader Class="d-flex justify-content-between">
+					<Icon Name="IconName.Passport"></Icon>
+					<CardTitle>RSA Key Pair</CardTitle>
+				</CardHeader>
+				<CardBody>
+					<CardText>Generate a new random RSA private and public pem certificate key pair.</CardText>
+				</CardBody>
+				<CardFooter>
+					<div class="d-flex justify-content-end">
+						<NavLink href="/Generator/RSAKeyPair">Open</NavLink>
+					</div>
+				</CardFooter>
+			</Card>
+		</div>
+
+	</div>
+
+</div>
+
+
+@code {
+	string Title { get; set; } = "GENERATORS";
+}
