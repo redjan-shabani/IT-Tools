@@ -19,6 +19,8 @@ namespace Infokom.Tools.Apps.Blazor.WebAssembly.WebTools
 				BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) 
 			});
 
+			
+
 			await builder.Build().RunAsync();
 		}
 	}
