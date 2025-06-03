@@ -1,12 +1,12 @@
 ﻿@page "/Generators/GUID"
 
 
-<center><h3>GUID Generator</h3></center>
-<hr class="divider" />
-
+<h3>GUID Generator</h3>
+<hr class="divider w-25" />
+<p>A Universally Unique Identifier (UUID) is a 128-bit number used to identify information in computer systems. The number of possible UUIDs is 16^32, which is 2^128 or about 3.4x10^38 (which is a lot!).</p>
 <Card>
 	<CardHeader>
-		<div class="d-flex justify-content-between">			
+		<div class="d-flex justify-content-between">
 			<div class="d-flex gap-3 align-items-center">
 				<CheckboxInput Label="Uppercase" @bind-Value="Uppercase" />
 				<CheckboxInput Label="Braces" @bind-Value="Braces"></CheckboxInput>
@@ -68,7 +68,7 @@
 
 		this.ResultItems.Clear();
 
-		var guids = Enumerable.Range(0, GuidCount).Select(_ => UUIDTools.GenerateV4());
+		var guids = Enumerable.Range(0, GuidCount).Select(_ => Generators.GenerateGUID());
 		foreach (var guid in guids)
 		{
 			var item = this.Hyphens ? guid.ToString() : guid.ToString("N");

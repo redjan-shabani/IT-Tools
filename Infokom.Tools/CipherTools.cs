@@ -2,7 +2,6 @@
 
 namespace Infokom.Tools
 {
-
 	public static class CipherTools
 	{		
 
