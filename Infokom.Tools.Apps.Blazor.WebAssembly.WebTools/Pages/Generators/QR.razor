@@ -1,0 +1,38 @@
+﻿@page "/Generators/QRCode"
+
+<h3>QR Code Generator</h3>
+<hr class="divider w-25" />
+<p>Generate and download a QR code for a URL or just plain text.</p>
+
+<Card>
+	<CardHeader>
+		<div class="d-flex justify-content-around gap-3">
+			<TextInput @bind-Value="@Text"></TextInput>
+			<Button Type="ButtonType.Button" Color="ButtonColor.Primary" @onclick="_ => Encode()">
+				<Icon Name="IconName.QrCode"></Icon>
+			</Button>
+		</div>
+	</CardHeader>
+
+	<CardBody>
+		<div class="d-flex justify-content-center">
+			<QRCode Data="@QRCodeData" Size="250px"/>
+		</div>
+	</CardBody>
+
+	<CardFooter>
+
+	</CardFooter>
+</Card>
+
+@code {
+
+	private string Text { get; set; } = string.Empty;
+
+	private string QRCodeData { get; set; } = string.Empty;
+
+	private void Encode()
+	{
+		this.QRCodeData = Text;
+	}
+}

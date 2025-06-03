@@ -2,8 +2,8 @@
 <div class="container">
 	<center><h3>DATA GENERATORS</h3></center>
 
-	<div class="d-flex flex-wrap gap-3 justify-content-around">
-		<div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2">
+	<div class="row">
+		<div class="col-xl-3 col-lg-6 col-md-12 p-2">
 			<Card Class="h-100">
 				<CardHeader>
 					<div class="d-flex justify-content-between">
@@ -21,8 +21,7 @@
 				</CardFooter>
 			</Card>
 		</div>
-
-		<div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2">
+		<div class="col-xl-3 col-lg-6 col-md-12 p-2">
 			<Card Class="h-100">
 				<CardHeader Class="d-flex justify-content-between">
 					<Icon Name="IconName.SortNumericDown"></Icon>
@@ -38,8 +37,7 @@
 				</CardFooter>
 			</Card>
 		</div>
-
-		<div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2">
+		<div class="col-xl-3 col-lg-6 col-md-12 p-2">
 			<Card Class="h-100">
 				<CardHeader>
 					<div class="d-flex justify-content-between">
@@ -57,26 +55,24 @@
 				</CardFooter>
 			</Card>
 		</div>
-
-
-
-		<div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2">
+		<div class="col-xl-3 col-lg-6 col-md-12 p-2">
 			<Card Class="h-100">
-				<CardHeader Class="d-flex justify-content-between">
-					<Icon Name="IconName.Passport"></Icon>
-					<CardTitle>RSA Key Pair</CardTitle>
+				<CardHeader>
+					<div class="d-flex justify-content-between">
+						<Icon Name="IconName.QrCode" Size="IconSize.x5"></Icon>
+						<CardTitle>QR Code</CardTitle>
+					</div>
 				</CardHeader>
 				<CardBody>
-					<CardText>Generate a new random RSA private and public pem certificate key pair.</CardText>
+					<CardText>Generate QR Code from a string.</CardText>
 				</CardBody>
 				<CardFooter>
 					<div class="d-flex justify-content-end">
-						<NavLink href="/Generator/RSAKeyPair">Open</NavLink>
+						<NavLink href="/Generators/QRCode">Open</NavLink>
 					</div>
 				</CardFooter>
 			</Card>
 		</div>
-
 	</div>
 
 </div>

@@ -1,8 +1,10 @@
 ﻿@page "/Generators/ULID"
 
 
-<center><h3>GUID Generator</h3></center>
-<hr class="divider" />
+<center><h3>ULID Generator</h3></center>
+<hr class="divider w-25" />
+<p>Generate random Universally Unique Lexicographically Sortable Identifier (ULID).</p>
+
 
 <Card>
 	<CardHeader>
@@ -61,7 +63,7 @@
 
 		this.ResultItems.Clear();
 
-		foreach (var item in Enumerable.Range(0, Count).Select(_ => ULIDTools.NewULID()))
+		foreach (var item in Enumerable.Range(0, Count).Select(_ => Generators.GenerateULID()))
 		{
 			this.ResultItems.Add(Quotes ? $"\"{item}\"" : item);
 		}

@@ -3,9 +3,9 @@ using System.Text;
 
 namespace Infokom.Tools
 {
-	public static class ULIDTools
-	{
 
+	public static class Generators
+	{
 		private static readonly char[] Base32Chars = "0123456789ABCDEFGHJKMNPQRSTVWXYZ".ToCharArray();
 
 		private static string EncodeBase32(byte[] data)
@@ -36,7 +36,7 @@ namespace Infokom.Tools
 		}
 
 
-		public static string NewULID()
+		public static string GenerateULID()
 		{
 			var timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
 			byte[] timeBytes = BitConverter.GetBytes(timestamp);
@@ -53,6 +53,10 @@ namespace Infokom.Tools
 		}
 
 
+		public static Guid GenerateGUID()
+		{
+			return Guid.NewGuid();
+		}
 	}
 
 }
